@@ -1,0 +1,157 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "FioriEducation.FirstProject",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"Northwind.svc": {
+				"uri": "/NorthWindODATA/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"ZNN_MATERIAL_SRV": {
+				"uri": "/IDES/sap/opu/odata/SAP/ZNN_MATERIAL_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/ZNN_MATERIAL_SRV/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "FioriEducation.FirstProject.view.Main",
+			"type": "XML",
+			"async": true,
+			"id": "Main"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "FioriEducation.FirstProject.i18n.i18n"
+				}
+			},
+			"ProductModel": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "Northwind.svc",
+				"preload": true
+			},
+			"OdataMaterialModel": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZNN_MATERIAL_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "FioriEducation.FirstProject.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false,
+				"viewLevel": null
+			},
+			"routes": [{
+				"name": "MaterialFromBackendViaOdata",
+				"pattern": "",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["MaterialFromBackendViaOdata"]
+			}, {
+				"name": "MaterialPlantFromBackendViaOdata",
+				"pattern": "Plant/{Matnr}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["MaterialPlantFromBackendViaOdata"]
+			}],
+			"targets": {
+				"TargetMain": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "Main",
+					"viewName": "Main"
+				},
+				"MaterialList": {
+					"viewType": "XML",
+					"viewName": "MaterialList"
+				},
+				"MaterialDynamic": {
+					"viewType": "XML",
+					"viewName": "MaterialDynamic"
+				},
+				"OdataPractice": {
+					"viewType": "XML",
+					"viewName": "OdataPractice"
+				},
+				"MaterialFromBackendViaOdata": {
+					"viewType": "XML",
+					"viewName": "MaterialFromBackendViaOdata"
+				},
+				"MaterialPlantFromBackendViaOdata": {
+					"viewType": "XML",
+					"viewName": "MaterialPlantFromBackendViaOdata"
+				}
+			}
+		}
+	}
+}

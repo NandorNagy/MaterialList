@@ -1,0 +1,30 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="FioriEducation.FirstProject.controller.MaterialList" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Material List">
+		<content>
+			<List headerText="Material">
+				<ObjectListItem title="Material1" type="Active" press="onListItemPress"
+					number="123"
+					numberUnit="HUF" showMarkers="true">
+					<firstStatus>
+						<ObjectStatus text="Open" state="Success"/>
+					</firstStatus>
+					<secondStatus>
+						<ObjectStatus text="Closed" state="Error"/>
+					</secondStatus>
+					<ObjectAttribute title="Color" text="Red"/>
+					<ObjectAttribute title="Size" text="11 * 11"/>
+				</ObjectListItem>
+				<ObjectListItem title="Material2" type="Active" press="onListItemPress"
+					number="4567"
+					numberUnit="HUF" showMarkers="true">
+					<firstStatus>
+						<ObjectStatus text="Open" state="Success"/>
+					</firstStatus>
+					<ObjectAttribute title="Color" text="Blue"/>
+					<ObjectAttribute title="Size" text="11 * 11"/>
+				</ObjectListItem>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

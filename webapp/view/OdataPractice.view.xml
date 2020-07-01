@@ -1,0 +1,15 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="FioriEducation.FirstProject.controller.OdataPractice" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Product List with Odata">
+		<content>
+<!-- https://services.odata.org/V2/Northwind/Northwind.svc/Products?$format=json -->			
+			<List items="{ProductModel>/Products}" headerText="Products">
+				<ObjectListItem title="{ProductModel>ProductName}" type="Active" press="onListItemPress" 
+					number="{ProductModel>ProductID}" showMarkers="true">
+					<ObjectAttribute title="Quantity Per Unit" text="{ProductModel>QuantityPerUnit}"/>
+					<ObjectAttribute title="Unit Price" text="{ProductModel>UnitPrice}"/>
+				</ObjectListItem>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

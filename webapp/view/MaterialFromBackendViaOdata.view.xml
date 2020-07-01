@@ -1,0 +1,15 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="FioriEducation.FirstProject.controller.MaterialFromBackendViaOdata" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Material">
+		<content>
+<!-- https://services.odata.org/V2/Northwind/Northwind.svc/Products?$format=json -->			
+			<List items="{OdataMaterialModel>/MaterialSet}" headerText="Material">
+				<ObjectListItem title="{OdataMaterialModel>Matnr}" type="Active" press="onListItemPress" 
+					showMarkers="true">
+					<ObjectAttribute title="Material Type" text="{OdataMaterialModel>Mtart}"/>
+					<ObjectAttribute title="Material Group" text="{OdataMaterialModel>Matkl}"/>
+				</ObjectListItem>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

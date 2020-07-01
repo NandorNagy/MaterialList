@@ -1,0 +1,17 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="FioriEducation.FirstProject.controller.MaterialDynamic" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Material Dynamic List">
+		<content>
+			<List items="{MaterialModel>/Materials}" headerText="Material">
+				<ObjectListItem title="{MaterialModel>Material}" type="Active" press="onListItemPress" 
+					number="{MaterialModel>Price}" numberUnit="HUF"	showMarkers="true">
+					<firstStatus>
+						<ObjectStatus text="Open" state="{ path: 'MaterialModel>Color', formatter:'.formatState'}"/>
+					</firstStatus>
+					<ObjectAttribute title="Color" text="{MaterialModel>Color}"/>
+					<ObjectAttribute title="Size" text="{MaterialModel>Size}"/>
+				</ObjectListItem>
+			</List>
+		</content>
+	</Page>
+</mvc:View>
